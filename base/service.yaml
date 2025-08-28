@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: shopease-backend
+spec:
+  selector:
+    tier: shopease-backend
+  ports:
+    - port: 3000
+      targetPort: 3000
+  type: ClusterIP
