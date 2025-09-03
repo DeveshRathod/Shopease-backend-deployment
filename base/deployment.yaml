@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: shopease-backend
-          image: devesh11411/shopease-backend:v1.0.7
+          image: devesh11411/shopease-backend:v1.0.0
           ports:
             - containerPort: 3000
