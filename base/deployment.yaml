@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopease-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      tier: shopease-backend
+  template:
+    metadata:
+      labels:
+        tier: shopease-backend
+    spec:
+      containers:
+        - name: shopease-backend
+          image: devesh11411/shopease-backend:v1.0.7
+          ports:
+            - containerPort: 3000

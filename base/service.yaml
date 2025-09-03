@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: shopease-backend
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/metrics"
+    prometheus.io/port: "3000"
+  labels:
+    tier: shopease-backend
+spec:
+  selector:
+    tier: shopease-backend
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 3000
+      targetPort: 3000

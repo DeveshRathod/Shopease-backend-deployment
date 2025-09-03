@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: shopease-backend-sm
+  namespace: shopease-dev
+  labels:
+    release: prom-stack
+spec:
+  selector:
+    matchLabels:
+      tier: shopease-backend
+  namespaceSelector:
+    matchNames:
+      - shopease-dev
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: 15s

@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopease-backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: shopease-backend
+  template:
+    spec:
+      containers:
+        - name: shopease-backend
+          envFrom:
+            - secretRef:
+                name: shopease-backend-dev-secret
